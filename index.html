@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue</title>
     <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
-        <h1>mi saldo disponible es: {{cantidad }}</h1>
+        <h2 
+            class="bg-dark"
+            :class="[cantidad > 500 ? 'text-success' : 'text-danger']"
+        >
+            mi saldo disponible es: {{cantidad }}
+        </h2>
         <a v-bind:href="enlace">ir a enlace</a>
         <!-- abrebiado con solo : -->
         <a :href="enlace">ir a enlace</a>
@@ -42,7 +48,7 @@
         <button @click="agregarSaldo">agregar saldo</button>
         
         <hr>
-        <button @click="disminuirSaldo(500)" :disabled="desactivar">restar saldo</button>
+        <button @click="disminuirSaldo(100)" :disabled="desactivar">restar saldo</button>
         
 
 
