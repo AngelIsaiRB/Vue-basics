@@ -51,11 +51,18 @@
         <button @click="disminuirSaldo(100)" :disabled="desactivar">restar saldo</button>
         
 
+        <footer-banco 
+            :valor="cantidad"
+            fecha="enero 2021"
+            :x="colorCantidad"
+        />        
+
 
     </div>
 
 
     <script src="main.js"></script>
+    <script src="./components/Footer.js"></script>
     <script>
        const appMounted = app.mount("#app")
     </script>
