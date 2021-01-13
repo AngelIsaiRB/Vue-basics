@@ -9,6 +9,41 @@
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
+        <h1>mi saldo disponible es: {{cantidad }}</h1>
+        <a v-bind:href="enlace">ir a enlace</a>
+        <!-- abrebiado con solo : -->
+        <a :href="enlace">ir a enlace</a>
+
+        <hr>
+
+        <h2 v-if="estado"> la cuenta esta activa</h2>
+        <h2 v-else>Cuenta desactivada</h2>
+
+        <hr>
+
+        <h2 v-if="cantidad > 500">cantidad : {{cantidad}}</h2>
+        <h2 v-else-if="cantidad <= 500 && cantidad > 0">
+            cantidad:
+            <span style="color:red">{{cantidad}}</span>
+        </h2>
+        <h2 v-else> Sin cantidad {{cantidad}}</h2>
+
+        <hr>
+
+        <h2>mis Servicios disponibles</h2>
+
+        <ul>
+            <li v-for="(item, index) in servicios" :key="index">{{index+1}}-{{item}}</li>
+        </ul>
+
+        <hr>
+
+        <button v-on:click="agregarSaldo">agregar saldo</button>
+
+        <button @click="agregarSaldo">agregar saldo</button>
+
+
+
     </div>
 
 
