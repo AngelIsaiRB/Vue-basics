@@ -11,11 +11,21 @@ const app = Vue.createApp({
                 "pasgos", 
                 "giros",
                 "cheques"],
+                desactivar:false,
+
         }
     },
     methods:{
         agregarSaldo() {
             this.cantidad = this.cantidad+100;
-        }
+        },
+        disminuirSaldo(valor){
+            if(this.cantidad===0){
+                this.desactivar=true;
+                alert("saldo en cero!");
+                return;
+            }
+            this.cantidad= this.cantidad-valor;
+        },
     }
 })
